@@ -4,8 +4,17 @@ public class LocationStats {
 
     private String state;
     private String country;
-    private int locationTotalCases;
+    private int locationTotalCasesYesterday;
+    private int locationTotalCasesToday;
     private int diffFromPrevDay;
+
+    public int getLocationTotalCasesYesterday() {
+        return locationTotalCasesYesterday;
+    }
+
+    public void setLocationTotalCasesYesterday(int locationTotalCasesYesterday) {
+        this.locationTotalCasesYesterday = locationTotalCasesYesterday;
+    }
 
     public int getDiffFromPrevDay() {
         return diffFromPrevDay;
@@ -31,12 +40,12 @@ public class LocationStats {
         this.country = country;
     }
 
-    public int getLocationTotalCases() {
-        return locationTotalCases;
+    public int getLocationTotalCasesToday() {
+        return locationTotalCasesToday;
     }
 
-    public void setLocationTotalCases(int locationTotalCases) {
-        this.locationTotalCases = locationTotalCases;
+    public void setLocationTotalCasesToday(int locationTotalCasesToday) {
+        this.locationTotalCasesToday = locationTotalCasesToday;
     }
 
     @Override
@@ -44,7 +53,8 @@ public class LocationStats {
         return "LocationStats{" +
                 "state='" + state + '\'' +
                 ", country='" + country + '\'' +
-                ", locationTotalCases=" + locationTotalCases +
+                ", locationTotalCasesYesterday=" + locationTotalCasesYesterday +
+                ", locationTotalCasesToday=" + locationTotalCasesToday +
                 ", diffFromPrevDay=" + diffFromPrevDay +
                 '}';
     }
