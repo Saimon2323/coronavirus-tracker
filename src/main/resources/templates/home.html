@@ -3,13 +3,17 @@
 <head>
     <title>Corona Virus tracker Application</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 </head>
 <body>
     <div class="container">
         <h1 class="text-center">Corona Virus tracker Application</h1>
-        <p class="text-center">This application lists the current number of cases reported across the globe.</p>
+        <p
+            class="text-center">This application lists the current number of cases reported across the globe.
+            <a href="https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv" target="_blank">Data Source link</a>
+        </p>
 
         <div class="jumbotron">
             <h1 class="display-4" th:text="${totalReportedCasesToday}"></h1>
@@ -17,18 +21,19 @@
             <hr class="my-4">
             <h1 class="display-4" th:text="${totalNewCases}"></h1>
             <p class="lead">Total new cases reported since <strong>previous day.</strong> &#128549;</p>
-
         </div>
 
         <table class="table table-striped">
             <tr>
+                <th>SL</th>
                 <th>Country/Region</th>
                 <th>Province/State</th>
                 <th>TotalCases(Yesterday)</th>
                 <th>TotalCases(Today)</th>
                 <th>Today New Cases</th>
             </tr>
-            <tr th:each="coronaRecord : ${coronaRecords}">
+            <tr th:each="coronaRecord, index : ${coronaRecords}">
+                <td th:text="${index.count}"></td>
                 <td th:text="${coronaRecord.country}"></td>
                 <td th:text="${coronaRecord.state}"></td>
                 <td th:text="${coronaRecord.locationTotalCasesYesterday}">0</td>
